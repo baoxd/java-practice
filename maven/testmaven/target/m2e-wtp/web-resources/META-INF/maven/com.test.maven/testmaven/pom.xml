@@ -16,6 +16,8 @@
 	<slf4j.version>1.7.6</slf4j.version>
 	<spring.version>4.1.3.RELEASE</spring.version>
     <jackson.version>2.5.4</jackson.version>
+    <mybatis.version>3.2.8</mybatis.version>
+    <mybatisspring.version>1.2.2</mybatisspring.version>
   </properties>
   
 
@@ -40,11 +42,57 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-  
+  	
+  	<!-- spring  -->
     <dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-webmvc</artifactId>
 	</dependency>
+	
+	 <dependency>  
+         <groupId>org.springframework</groupId>  
+         <artifactId>spring-jdbc</artifactId>  
+     </dependency>
+     
+     <dependency>  
+          <groupId>org.aspectj</groupId>  
+          <artifactId>aspectjweaver</artifactId>  
+          <version>1.8.4</version>  
+      </dependency>
+     
+     <dependency>  
+         <groupId>org.springframework</groupId>  
+         <artifactId>spring-test</artifactId>  
+         <scope>test</scope>  
+     </dependency> 
+     
+     <!-- mybatis -->
+     <dependency>
+     	<groupId>org.mybatis</groupId>  
+        <artifactId>mybatis</artifactId>  
+        <version>${mybatis.version}</version>  
+     </dependency>
+     
+     <dependency>
+     	<groupId>org.mybatis</groupId>  
+        <artifactId>mybatis-spring</artifactId>  
+        <version>${mybatisspring.version}</version>
+     </dependency>
+     
+      <!-- mysql连接 -->  
+      <dependency>  
+          <groupId>mysql</groupId>  
+          <artifactId>mysql-connector-java</artifactId>  
+          <version>5.1.34</version>  
+      </dependency>  
+
+      <!-- 数据源 -->  
+      <dependency>  
+          <groupId>com.alibaba</groupId>  
+          <artifactId>druid</artifactId>  
+          <version>1.0.12</version>  
+      </dependency> 
+     
 	
 	<dependency>
 		<groupId>commons-lang</groupId>
@@ -91,11 +139,45 @@
   </dependencies>
   
   <build>
+  	
+  	<!-- mybatis自动生成工具
+  	<pluginManagement>  
+       <plugins>   
+         <plugin>
+          <groupId>org.mybatis.generator</groupId>
+          <artifactId>mybatis-generator-maven-plugin</artifactId>
+          <version>1.3.2</version>
+          <configuration>
+              <configurationFile>src/main/resources/mybatis/generator.xml</configurationFile>
+              <verbose>true</verbose>
+              <overwrite>true</overwrite>
+           </configuration>
+           <executions>
+              <execution>
+                  <id>Generate MyBatis Artifacts</id>
+                  <goals>
+                      <goal>generate</goal>
+                  </goals>
+              </execution>
+           </executions>
+           <dependencies>
+              <dependency>
+                  <groupId>org.mybatis.generator</groupId>
+                  <artifactId>mybatis-generator-core</artifactId>
+                  <version>1.3.2</version>
+              </dependency>
+           </dependencies>
+          </plugin>
+      </plugins>  
+     </pluginManagement>   
+  	 -->
+  	 
+  	 
 	<plugins>
 		<plugin>
 			<groupId>org.eclipse.jetty</groupId>
-		    <artifactId>jetty-maven-plugin</artifactId>
-		    <version>9.4.5.v20170502</version>
+			<artifactId>jetty-maven-plugin</artifactId>
+			<version>9.2.2.v20140723</version>
 		</plugin>
 	</plugins>
  </build>

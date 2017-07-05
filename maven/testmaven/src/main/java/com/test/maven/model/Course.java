@@ -22,6 +22,7 @@ public class Course {
 	// 课程介绍
 	private String descr;
 	// 课程提纲
+//	private List<Chapter> chapterList;
 	private List<Chapter> chapterList;
 
 	public Integer getCourseId() {

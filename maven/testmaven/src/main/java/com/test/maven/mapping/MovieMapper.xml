@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.maven.dao.MovieMapper" >
+  <resultMap id="BaseResultMap" type="com.test.maven.model.Movie" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="doctor" property="doctor" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="flashpath" property="flashpath" jdbcType="VARCHAR" />
+    <result column="poster" property="poster" jdbcType="VARCHAR" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, doctor, title, language, country, summary, flashpath, poster, year, type, createtime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from movie
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from movie
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.test.maven.model.Movie" >
+    insert into movie (id, doctor, title, 
+      language, country, summary, 
+      flashpath, poster, year, 
+      type, createtime)
+    values (#{id,jdbcType=VARCHAR}, #{doctor,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{language,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{flashpath,jdbcType=VARCHAR}, #{poster,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.maven.model.Movie" >
+    insert into movie
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="doctor != null" >
+        doctor,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="summary != null" >
+        summary,
+      </if>
+      <if test="flashpath != null" >
+        flashpath,
+      </if>
+      <if test="poster != null" >
+        poster,
+      </if>
+      <if test="year != null" >
+        year,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="doctor != null" >
+        #{doctor,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="flashpath != null" >
+        #{flashpath,jdbcType=VARCHAR},
+      </if>
+      <if test="poster != null" >
+        #{poster,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.maven.model.Movie" >
+    update movie
+    <set >
+      <if test="doctor != null" >
+        doctor = #{doctor,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="flashpath != null" >
+        flashpath = #{flashpath,jdbcType=VARCHAR},
+      </if>
+      <if test="poster != null" >
+        poster = #{poster,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.maven.model.Movie" >
+    update movie
+    set doctor = #{doctor,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      language = #{language,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      flashpath = #{flashpath,jdbcType=VARCHAR},
+      poster = #{poster,jdbcType=VARCHAR},
+      year = #{year,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

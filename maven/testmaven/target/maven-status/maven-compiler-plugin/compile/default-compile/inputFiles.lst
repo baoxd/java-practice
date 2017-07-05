@@ -1,5 +1,15 @@
-D:\workspace\java\testmaven\src\main\java\com\test\maven\service\impl\CourseServiceImpl.java
-D:\workspace\java\testmaven\src\main\java\com\test\maven\service\CourseService.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\model\User.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\util\TestUtils.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\dao\UserMapper.java
 D:\workspace\java\testmaven\src\main\java\com\test\maven\controller\CourseController.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\dao\MovieMapper.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\service\impl\UserServiceImpl.java
 D:\workspace\java\testmaven\src\main\java\com\test\maven\model\Course.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\controller\UserController.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\model\Comments.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\service\impl\CourseServiceImpl.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\dao\CommentsMapper.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\service\CourseService.java
 D:\workspace\java\testmaven\src\main\java\com\test\maven\model\Chapter.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\service\UserService.java
+D:\workspace\java\testmaven\src\main\java\com\test\maven\model\Movie.java

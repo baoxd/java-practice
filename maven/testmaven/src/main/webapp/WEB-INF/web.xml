@@ -4,10 +4,11 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
   <display-name>Spring MVC Study</display-name>
+  
   <!-- Spring应用上下文， 理解层次化的ApplicationContext -->
   <context-param>
  		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/configs/spring/applicationContext.xml</param-value>
+		<param-value>/WEB-INF/configs/spring/applicationContext*.xml</param-value>
   </context-param>
   
   <listener>
@@ -15,6 +16,30 @@
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
   </listener>
+  
+  
+  <!-- 防止spring内存溢出监听器  -->
+  <listener>  
+      <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>  
+  </listener>
+  
+  <!-- 字符编码过滤器 -->
+  <filter>  
+       <filter-name>encodingFilter</filter-name>  
+       <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>  
+       <init-param>  
+           <param-name>encoding</param-name>  
+           <param-value>utf-8</param-value>  
+       </init-param>  
+       <init-param>  
+           <param-name>forceEncoding</param-name>  
+           <param-value>true</param-value>  
+       </init-param>  
+   </filter>  
+   <filter-mapping>  
+       <filter-name>encodingFilter</filter-name>  
+       <url-pattern>/*</url-pattern>  
+   </filter-mapping>  
   
   <!-- DispatcherServlet, Spring MVC的核心 -->
   <servlet>
@@ -33,4 +58,11 @@
 	    <!-- mvc-dispatcher拦截所有的请求-->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+	<!-- 配置session超时时间，单位分钟 -->  
+    <session-config>  
+        <session-timeout>30</session-timeout>  
+    </session-config>  
+	
 </web-app>

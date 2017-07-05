@@ -12,6 +12,7 @@
 
 	<context:annotation-config />
 	
+	<!-- 扫描包下service、 dao 注册到spring容器 -->
 	<context:component-scan base-package="com.test.maven">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
