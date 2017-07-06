@@ -8,25 +8,43 @@
     <result column="role" property="role" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="VARCHAR" />
   </resultMap>
+  
   <sql id="Base_Column_List" >
     id, name, password, role, createtime
   </sql>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from user
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  
+  <select id="findByNameAndPassword" resultMap="BaseResultMap">
+  	select 
+  	<include refid="Base_Column_List"></include>
+  	from user
+  	where name = #{name} and password = #{password}
+  </select>
+  
+  <select id="findAll" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List"></include>
+  	from user
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user
     where id = #{id,jdbcType=VARCHAR}
   </delete>
+  
   <insert id="insert" parameterType="com.test.maven.model.User" >
     insert into user (id, name, password, 
       role, createtime)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{role,jdbcType=VARCHAR}, #{createtime,jdbcType=VARCHAR})
   </insert>
+  
   <insert id="insertSelective" parameterType="com.test.maven.model.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -64,6 +82,7 @@
       </if>
     </trim>
   </insert>
+  
   <update id="updateByPrimaryKeySelective" parameterType="com.test.maven.model.User" >
     update user
     <set >
@@ -82,6 +101,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  
   <update id="updateByPrimaryKey" parameterType="com.test.maven.model.User" >
     update user
     set name = #{name,jdbcType=VARCHAR},

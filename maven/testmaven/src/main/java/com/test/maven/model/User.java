@@ -1,5 +1,7 @@
 package com.test.maven.model;
 
+import java.util.Date;
+
 public class User {
     private String id;
 
@@ -10,6 +12,8 @@ public class User {
     private String role;
 
     private String createtime;
+    
+    private Date createtimeForPage;
 
     public String getId() {
         return id;
@@ -50,4 +54,14 @@ public class User {
     public void setCreatetime(String createtime) {
         this.createtime = createtime == null ? null : createtime.trim();
     }
+
+	public Date getCreatetimeForPage() {
+		return createtimeForPage;
+	}
+
+	public void setCreatetimeForPage(Date createtimeForPage) {
+		this.createtimeForPage = createtimeForPage;
+	}
+    
+    
 }

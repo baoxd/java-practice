@@ -22,13 +22,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public User findUserByNameAndPassword(String name, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.findByNameAndPassword(name, password);
 	}
 
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return mapper.findAll();
 	}
 	
 }
